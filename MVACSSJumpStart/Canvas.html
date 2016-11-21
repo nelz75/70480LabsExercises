@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CanvasDemos</title>
+    <link href="Styles/StyleSheetCanvasDemos.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+</head>
+<body>
+    <canvas height="400" width="600" id="CanvasDemo70480">
+        Your browser doesn't support canvans elements
+    </canvas>
+    <canvas height="400" width="600" id="drawingSurface">
+        Your browser doesn't support canvans elements
+    </canvas>
+
+</body>
+</html>
+
+<script>
+    window.onload = function () {
+        var draw = document.getElementById("CanvasDemo70480");
+        var ctxt = draw.getContext("2d");
+
+        //draw a circle
+        ctxt.beginPath();
+        ctxt.arc(150, 100, 75, 0, 2 * Math.PI, false);
+        ctxt.lineWidth = 25;
+        ctxt.strokeStyle = '#0f0';
+        ctxt.stroke();
+
+        //draw a line
+        ctxt.beginPath();
+        ctxt.moveTo(10, 10);
+        ctxt.lineTo(225, 350);
+        ctxt.strokeStyle = '#000';
+        ctxt.lineWidth = 2;
+        ctxt.stroke();
+
+        //draw a quarter of circle //remember 180° = pi radians
+        ctxt.beginPath();
+        ctxt.arc(450, 100, 75, 1.5 * Math.PI, 2 * Math.PI, false);
+        ctxt.lineWidth = 25;
+        ctxt.strokeStyle = 'blue';
+        ctxt.stroke();
+        ctxt.beginPath();
+        ctxt.arc(150, 300, 75, 1 * Math.PI, 1.5 * Math.PI, false);
+        ctxt.lineWidth = 25;
+        ctxt.strokeStyle = '#0ff';
+        ctxt.stroke();
+        ctxt.beginPath();
+        ctxt.arc(450, 300, 75, .5 * Math.PI, 1 * Math.PI, false);
+        ctxt.lineWidth = 25;
+        ctxt.strokeStyle = '#f00';
+        ctxt.stroke();
+
+        //quadraticArc
+        ctxt.beginPath();
+        ctxt.moveTo(10, 380);
+        ctxt.quadraticCurveTo(300, -250, 580, 380);
+        ctxt.lineWidth = 25;
+        ctxt.strokeStyle = '#f00';
+        ctxt.stroke();
+
+        //bezierCurveTo
+        ctxt.beginPath();
+        ctxt.moveTo(125, 20);
+        ctxt.bezierCurveTo(0, 200, 300, 300, 50, 400);
+        ctxt.lineWidth = 5;
+        ctxt.strokeStyle = '#000';
+        ctxt.stroke();
+
+        //rect
+        ctxt.beginPath();
+        ctxt.rect(300, 200, 150, 75);
+        ctxt.lineWidth = 1;
+        ctxt.stroke();
+    
+        var text = document.getElementById("drawingSurface");
+        var ctxt = text.getContext("2d");
+        ctxt.strokeText("1. Text with default font", 100, 100);
+
+        ctxt.font = "24px arial";
+        ctxt.strokeText("2. Text with altered font", 100, 125);
+
+        ctxt.font = "24px arial";
+        ctxt.strokeStyle = "Red";
+        ctxt.strokeText("3. Text with altered colored font", 100, 160);
+
+        ctxt.font = "24px arial";
+        ctxt.fillStyle = "Red";
+        ctxt.fillText("4. Text with altered colored font", 100, 185);
+    }
+</script>
+
